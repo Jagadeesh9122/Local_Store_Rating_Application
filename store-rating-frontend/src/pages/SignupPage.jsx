@@ -4,6 +4,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import api from '../api/api';
 import { nameRules, addressMax, passwordRegex } from '../utils/validators';
+import '../styles/LoginPage.css';
+import Navbar from '../components/Navbar';
 
 const schema = yup.object().shape({
   name: yup.string().min(nameRules.min, `Min ${nameRules.min}`).max(nameRules.max, `Max ${nameRules.max}`).required('Required'),
@@ -35,28 +37,29 @@ export default function SignupPage() {
 
   return (
     <div className='container'>
-         <div className="card" style={{ maxWidth: 560, margin: '40px auto' }}>
-      <h2>Sign up</h2>
+        <Navbar/>
+         <div className="login-card" >
+      <h2 className='login-header'>Sign up</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="form-row">
             <div style={{ flex:1 }}>
-          <label>Name</label><br />
-          <input className="input" name="name" value={formik.values.name} onChange={formik.handleChange} />
+          <label>Name</label>
+          <input  name="name" value={formik.values.name} onChange={formik.handleChange} />
           {formik.touched.name && formik.errors.name && <div style={{color:'red'}}>{formik.errors.name}</div>}
         </div>
         <div>
-          <label>Email</label><br />
-          <input className="input"  name="email" value={formik.values.email} onChange={formik.handleChange} />
+          <label>Email</label>
+          <input   name="email" value={formik.values.email} onChange={formik.handleChange} />
           {formik.touched.email && formik.errors.email && <div style={{color:'red'}}>{formik.errors.email}</div>}
         </div>
-        <div>
+       <div>
           <label>Address</label><br />
-          <textarea name="address" value={formik.values.address} onChange={formik.handleChange} />
+          <textarea name="address" value={formik.values.address} onChange={formik.handleChange} rows={5} cols={40}/>
           {formik.touched.address && formik.errors.address && <div style={{color:'red'}}>{formik.errors.address}</div>}
         </div>
         <div>
-          <label>Password</label><br />
-          <input className="input"  name="password" type="password" value={formik.values.password} onChange={formik.handleChange} />
+          <label>Password</label>
+          <input   name="password" type="password" value={formik.values.password} onChange={formik.handleChange} />
           {formik.touched.password && formik.errors.password && <div style={{color:'red'}}>{formik.errors.password}</div>}
         </div>
         </div>

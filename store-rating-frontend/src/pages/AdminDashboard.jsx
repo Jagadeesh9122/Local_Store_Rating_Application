@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import api from '../api/api';
 import Table from '../components/Table';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
+import '../styles/AdminDashboard.css';
 
 export default function AdminDashboard() {
   const { logout } = useAuth();
@@ -31,22 +33,24 @@ export default function AdminDashboard() {
   useEffect(() => { fetchAll(); }, []);
 
   return (
-  <div className="container">
+  <div className="admin-container">
+    <Navbar />
+
   <header className="app-header">
-    <div className="brand"><div className="logo">SR</div><h1>Admin Dashboard</h1></div>
+    <div className="brand"><div className="logo">AD</div><h1>Admin Dashboard</h1></div>
     <div className="header-actions"><button className="btn" onClick={logout}>Logout</button></div>
   </header>
 
 
       {loading ? <div>Loading...</div> : (
         <>
-           <div className="card" style={{ display:'flex', gap:12 }}>
-    <div><div className="small-muted">Total users</div><div className="kv">{totals?.totalUsers ?? '—'}</div></div>
-    <div><div className="small-muted">Total stores</div><div className="kv">{totals?.totalStores ?? '—'}</div></div>
-    <div><div className="small-muted">Total ratings</div><div className="kv">{totals?.totalRatings ?? '—'}</div></div>
+           <div className="stat-card" style={{ display:'flex', gap:12 }}>
+    <div><div className="stat-name">Total users</div><div className="stat-value">{totals?.totalUsers ?? '—'}</div></div>
+    <div><div className="stat-name">Total stores</div><div className="stat-value">{totals?.totalStores ?? '—'}</div></div>
+    <div><div className="stat-name">Total ratings</div><div className="stat-value">{totals?.totalRatings ?? '—'}</div></div>
   </div>
 
-          <h3 style={{ marginTop:20 }}>Users</h3>
+          <h3 className="list-name">Users</h3>
           <Table
             columns={[
               { key: 'name', label: 'Name' },
@@ -57,7 +61,7 @@ export default function AdminDashboard() {
             data={users}
           />
 
-          <h3 style={{ marginTop:20 }}>Stores</h3>
+          <h3 className='list-name'>Stores</h3>
           <Table
             columns={[
               { key: 'name', label: 'Name' },

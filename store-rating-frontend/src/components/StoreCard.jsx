@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../api/api';
 import RatingStars from './RatingStars';
+import '../styles/StoreCard.css';
 
 export default function StoreCard({ store, onRated }) {
   const [submitting, setSubmitting] = useState(false);
@@ -19,7 +20,7 @@ export default function StoreCard({ store, onRated }) {
 
     return (
     <div>
-      <div className="meta">
+      <div className="store-card">
         <div>
           <h3 className="store-title">{store.name}</h3>
           <div className="store-address">{store.address}</div>
@@ -28,11 +29,12 @@ export default function StoreCard({ store, onRated }) {
           <div>Avg: <span className="kv">{store.averageRating ?? '—'}</span></div>
           <div>Your: <span className="kv">{store.userRating ?? '—'}</span></div>
         </div>
-      </div>
-
-      <div style={{ marginTop:8 }}>
+         <div>
         <RatingStars value={store.userRating || 0} onChange={submitRating} disabled={submitting} />
       </div>
+      </div>
+
+     
     </div>
   );
 

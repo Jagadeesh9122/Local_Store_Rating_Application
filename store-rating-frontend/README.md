@@ -1,70 +1,191 @@
-# Getting Started with Create React App
+# 🏪 Rate ur Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web platform where users rate stores, owners track feedback, and admins manage the ecosystem — all in one place.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tech Stack
 
-### `npm start`
+- **Frontend:** React.js, CSS
+- **Backend:** Express.js (Node.js)
+- **Database:** SQLite
+- **Authentication:** JWT (JSON Web Token)
+- **Password Security:** bcrypt.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧩 Project Overview
 
-### `npm test`
+Rate ur Store enables users to explore stores, give 1–5 star ratings, and modify them anytime.  
+It features **role-based access**:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **System Administrator:** Manages users and stores with full dashboard insights.
+- **Store Owner:** Tracks ratings and customer feedback for their stores.
+- **Normal User:** Signs up, browses stores, and rates them.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 👥 User Roles & Functionalities
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🛠 System Administrator
+- Add new stores, admin users, and normal users
+- Dashboard overview:
+  - Total Users
+  - Total Stores
+  - Total Ratings
+- View lists of:
+  - Stores → Name, Email, Address, Rating
+  - Users → Name, Email, Address, Role
+- Apply filters and sorting by Name, Email, Address, Role
+- Log out
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🙋‍♂️ Normal User
+- Sign up / Log in
+- View all registered stores
+- Search by Store Name or Address
+- Submit or modify their rating (1–5)
+- Update password
+- Log out
 
-### `npm run eject`
+### 🏠 Store Owner
+- Log in
+- View ratings submitted for their stores
+- Check average store rating
+- Update password
+- Log out
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧾 Form Validations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Field    | Validation                                 |
+|----------|--------------------------------------------|
+| Name     | 20–60 characters                           |
+| Address  | Max 400 characters                         |
+| Password | 8–16 characters, 1 uppercase, 1 special char |
+| Email    | Standard email format                      |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🗂️ Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+Rate-ur-Store/
+ ├── backend/
+ │   ├── src/
+ │   │   ├── config/
+ │   │   ├── models/
+ │   │   ├── routes/
+ │   │   ├── controllers/
+ │   │   ├── middleware/
+ │   │   └── index.js
+ │   ├── package.json
+ │   ├── .env
+ │   └── database.sqlite
+ │
+ ├── frontend/
+ │   ├── src/
+ │   │   ├── components/
+ │   │   ├── pages/
+ │   │   ├── context/
+ │   │   └── App.js
+ │   ├── package.json
+ │   ├── public/
+ │   └── .env
+ │
+ ├── README.md
+ ├── .gitignore
+ └── package.json
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## ⚙️ Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create a `.env` file inside `backend/`:
 
-### Analyzing the Bundle Size
+```
+PORT=5000
+JWT_SECRET=your_secret_key
+DATABASE_URL=./src/database/database.sqlite
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📦 Installation & Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 1️⃣ Clone the Repository
 
-### Advanced Configuration
+```bash
+git clone https://github.com/<your-username>/Rate-ur-Store.git
+cd Rate-ur-Store
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 2️⃣ Backend Setup
 
-### Deployment
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 3️⃣ Frontend Setup
 
-### `npm run build` fails to minify
+```bash
+cd ../frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Frontend:** http://localhost:3000
+- **Backend:** http://localhost:5000
+
+---
+
+## 🧪 Testing the App
+
+- Open two terminals (backend & frontend).
+- Visit [http://localhost:3000](http://localhost:3000)
+- Login using seeded users:
+
+| Role  | Email                | Password      |
+|-------|----------------------|--------------|
+| Admin | admin@example.com    | Admin@1234   |
+| Owner | owner1@example.com   | Owner@1234   |
+| User  | user1@example.com    | User@1234    |
+
+- Try all role functionalities to verify full workflow.
+
+---
+
+## 🔒 Security
+
+- Encrypted passwords using bcrypt.js
+- Authenticated endpoints using JWT tokens
+- Role-based route protection on both frontend and backend
+
+---
+
+## 🧰 Core NPM Packages
+
+**Backend:**  
+`express`, `sqlite3`, `sequelize`, `bcryptjs`, `jsonwebtoken`, `dotenv`, `cors`, `nodemon`
+
+**Frontend:**  
+`react`, `react-router-dom`, `axios`, `react-icons`, `react-toastify`
+
+---
+
+## 🧠 Future Enhancements
+
+- Rating analytics dashboard with charts
+- Store images and category filters
+- Email-based password reset
+- Pagination and lazy loading for large store lists
+- Deployment to Render / Vercel
+
+---
+
+## 🏁 Conclusion
+
+Rate ur Store simplifies store feedback management for users, owners, and admins alike — designed with clean architecture, strong validations, and intuitive UI/UX.

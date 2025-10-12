@@ -1,0 +1,224 @@
+.store-container {
+    background-color: #f3f6fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+    box-sizing: border-box;
+}
+
+.app-header {
+    margin-top: 40px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100vw;
+    padding: 20px 32px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1 0%, #764ba2 100%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.15);
+    transition: transform 0.3s;
+}
+.logo:hover {
+    transform: rotate(10deg) scale(1.08);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #22223b;
+    font-weight: 600;
+}
+
+.small-muted {
+    color: #6b7280;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.header-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.password-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-secondary, .btn {
+    background-color: #6366f1;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover, .btn:hover {
+    background-color: #4f46e5;
+    color: #e0e7ff;
+}
+
+.search-bar {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    padding: 24px 20px;
+    margin-bottom: 24px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.store-search-name,
+.store-search-address {
+    font-size: 15px;
+    color: #374151;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    width: 160px;
+    transition: border 0.2s;
+}
+
+.store-search-name:focus,
+.store-search-address:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+.search-form button {
+    background-color: #6366f1;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.search-form button:hover {
+    background-color: #4f46e5;
+}
+
+.store-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.store-rating {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.no-stores {
+    text-align: center;
+    color: #6b7280;
+    font-size: 20px;
+    margin-top: 48px;
+    font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .app-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+        gap: 8px;
+    }
+    .search-bar {
+        padding: 16px 10px;
+        width: 98%;
+    }
+    .store-list {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-header {
+        padding: 10px 4px;
+        font-size: 1rem;
+    }
+    .brand {
+        gap: 10px;
+    }
+    .logo {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    .search-bar {
+        padding: 10px 2px;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .search-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .store-search-name,
+    .store-search-address {
+        width: 70%;
+        font-size: 14px;
+    }
+    .store-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-bottom: 20px;
+    }
+}

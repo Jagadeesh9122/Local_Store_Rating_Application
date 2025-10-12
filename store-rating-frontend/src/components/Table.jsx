@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import '../styles/Table.css';
 
 export default function Table({ columns = [], data = [] }) {
   const [sortKey, setSortKey] = useState(null);
@@ -25,7 +26,7 @@ export default function Table({ columns = [], data = [] }) {
   };
 
   return (
-    <div className="card">
+    <div className="table-container">
          <table className="table">
       <thead>
         <tr>
