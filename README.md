@@ -1,4 +1,4 @@
-# 🏪 Rate ur Store
+# 🏪 R8MyStore
 
 A full-stack web platform where users rate stores, owners track feedback, and admins manage the ecosystem — all in one place.
 
