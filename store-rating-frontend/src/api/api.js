@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL || 'https://local-store-rating-application-5.onrender.com';
+const baseURL = process.env.REACT_APP_API_URL || 'https://local-store-rating-application-99.onrender.com';
 
 const api = axios.create({ baseURL });
 
