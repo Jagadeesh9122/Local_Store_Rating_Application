@@ -11,7 +11,7 @@ const ownerRoutes = require('./routes/owner.routes');
 const app = express();
 
 app.use(morgan('dev'));
-const cors = require('cors');
+
 
 app.use(cors({
   origin: 'https://local-store-rating-application-8.onrender.com', // your frontend Render URL
