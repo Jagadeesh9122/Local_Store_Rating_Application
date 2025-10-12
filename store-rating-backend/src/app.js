@@ -11,7 +11,14 @@ const ownerRoutes = require('./routes/owner.routes');
 const app = express();
 
 app.use(morgan('dev'));
-app.use(cors());
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://local-store-rating-application-8.onrender.com', // your frontend Render URL
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
