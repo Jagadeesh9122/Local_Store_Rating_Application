@@ -4,7 +4,7 @@ const baseURL = process.env.REACT_APP_API_URL || 'https://local-store-rating-app
 
 const api = axios.create({ baseURL });
 
-// attach token from localStorage
+
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
