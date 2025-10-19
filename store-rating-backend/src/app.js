@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.use(cors({
   origin: [
     "http://localhost:3000",                        
-    "https://local-store-rating-application.vercel.app" 
+    "https://local-store-rating-application-58vs.vercel.app/" 
   ],
   credentials: true
 }));
