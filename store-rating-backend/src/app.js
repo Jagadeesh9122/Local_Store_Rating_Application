@@ -11,7 +11,8 @@ const app = express();
 app.use(morgan('dev')); 
 app.use(cors({
   origin: [
-    "http://localhost:3000",                        
+    "http://localhost:3000",
+    "https://local-store-application-service.vercel.app/"                       
   ],
   credentials: true
 }));
