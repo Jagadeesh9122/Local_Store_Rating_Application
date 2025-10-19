@@ -46,12 +46,18 @@ export default function LoginPage() {
                     <div className="form-row">
                         <div >
                             <label>Email</label>
-                            <input name="email" value={formik.values.email} onChange={formik.handleChange} />
+                            <input name="email" value={formik.values.email} onChange={formik.handleChange} list="admin-owner-id" placeholder='type admin/owner/user'/>
+                            <datalist id="admin-owner-id">
+                                <option value="admin@example.com"/>
+                                <option value="owner1@example.com"/>
+                                <option value="user1@example.com"/>
+                                </datalist>
                             {formik.touched.email && formik.errors.email && <div className='error'>{formik.errors.email}</div>}
                         </div>
                         <div>
                             <label>Password</label>
-                            <input name="password" type="password" value={formik.values.password} onChange={formik.handleChange} />
+                            <input name="password" type="password" value={formik.values.password} onChange={formik.handleChange} placeholder='type Admin/Owner/User + @1234' />
+                            
                             {formik.touched.password && formik.errors.password && <div className="error">{formik.errors.password}</div>}
                         </div>
                          <button type="submit" disabled={formik.isSubmitting}>Login</button>
